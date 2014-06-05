@@ -169,7 +169,7 @@ function dma_custom_metaboxes( array $meta_boxes ) {
 			array(
 				'name' => 'Event Code',
 				'desc' => 'Unique three-character code for this event.',
-				'id'   => $prefix . 'accession_id',
+				'id'   => '_dma_accession_id',
 				'type' => 'text_small',
 			),
 			array(
