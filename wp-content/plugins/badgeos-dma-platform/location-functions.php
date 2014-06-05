@@ -22,7 +22,6 @@ function dma_set_current_location_id( $location_id = 0 ) {
 		// Store the location ID within our session data
 		$wp_session = WP_Session::get_instance();
 		$wp_session['location_id'] = absint( $location_id );
-
 	}
 
 	// Return the stored session ID
@@ -110,3 +109,4 @@ function dma_location_redirect_to_url( $login_success_url ) {
 	return ( $redirect_url = get_post_meta( $_SESSION['location_id'], '_dma_location_redirect', true ) ) ? $redirect_url : $login_success_url;
 }
 add_filter( 'badgeos_auth_success_url', 'dma_location_redirect_to_url' );
+add_filter( 'wp_session_expiration',function () { return 60*3600; } );
